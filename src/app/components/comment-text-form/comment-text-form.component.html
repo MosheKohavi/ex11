@@ -1,0 +1,11 @@
+<div class="wrapper" (click)="clicked($event)">
+  <div>
+    <img [src]="'assets/users/' + (currentUser$ | async)?.id + '.jpg'">
+  </div>
+  <div>
+    <textarea rows="3" [formControl]="form" placeholder="Please add your comment here"></textarea>
+  </div>
+  <div>
+    <button (click)="save()">Submit</button>
+  </div>
+</div>

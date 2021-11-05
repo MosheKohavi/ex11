@@ -1,0 +1,6 @@
+<ul *ngIf="comments.length">
+  <li *ngFor="let comment of comments">
+    <app-comment [comment]="comment"></app-comment>
+    <app-comments-list [comments]="comment.subComments || []"></app-comments-list>
+  </li>
+</ul>

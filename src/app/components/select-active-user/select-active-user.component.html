@@ -1,0 +1,4 @@
+<label for="user">User: </label><br>
+<select id="user" [formControl]="form">
+  <option *ngFor="let user of users$ | async" [value]="user.id">{{user.displayName}}</option>
+</select>

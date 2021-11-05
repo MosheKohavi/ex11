@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+}

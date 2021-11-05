@@ -1,0 +1,18 @@
+<li *ngIf="comment && comment.user" (click)="clicked($event)">
+  <div class="wrapper">
+    <div>
+      <img [src]="'assets/users/' + comment.user.id + '.jpg'">
+    </div>
+    <div>
+      <p>{{comment.user.displayName}}</p>
+      <p>{{comment.createdAt | time}}</p>
+    </div>
+    <div>
+      <p>{{comment.txt}}</p>
+    </div>
+    <div *ngIf="showButtons$ | async">
+      <button (click)="edit()">Edit comment</button>
+      <button (click)="delete()">Delete comment</button>
+    </div>
+  </div>
+</li>
