@@ -1,4 +1,4 @@
-<div class="wrapper" (click)="clicked($event)">
+<div class="wrapper" (click)="clicked($event)" *ngIf="currentUser$ | async">
   <div>
     <img [src]="'assets/users/' + (currentUser$ | async)?.id + '.jpg'">
   </div>

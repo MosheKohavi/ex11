@@ -39,4 +39,9 @@ export class CommentComponent implements OnInit {
     this.editService.deleteComment(this.comment);
   }
 
+  deleteCurrentUser() {
+    this.usersService.deleteCurrentUser();
+    this.usersService.setCurrentUser(null);
+  }
+
 }
