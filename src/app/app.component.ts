@@ -28,8 +28,8 @@ export class AppComponent {
   }
 
   clicked() {
-    this.editService.selectedComment = null;
-    this.editService.isEdit = false;
+    this.editService.selectedComment$.next(null);
+    this.editService.isEdit$.next(false);
   }
 
 }

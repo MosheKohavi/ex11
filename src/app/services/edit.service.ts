@@ -3,15 +3,16 @@ import {UsersService} from "./users.service";
 import {CommentsService} from "./comments.service";
 import {first} from "rxjs/operators";
 import {IComment} from "../models/Comment";
+import {BehaviorSubject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class EditService {
 
-  selectedComment: IComment | null = null;
+  selectedComment$ = new BehaviorSubject<IComment | null>(null);
 
-  isEdit: boolean = false;
+  isEdit$ = new BehaviorSubject<boolean>(false)
 
   constructor(
     private usersService: UsersService,
@@ -27,12 +28,12 @@ export class EditService {
   }
 
   addComment(text: string) {
-    this.commentsService.addComment(text, this.selectedComment?.id || null);
+    this.commentsService.addComment(text, this.selectedComment$.value?.id || null);
   }
 
   editComment(text: string) {
-    if (this.selectedComment) {
-      this.commentsService.editComment(this.selectedComment, text);
+    if (this.selectedComment$.value) {
+      this.commentsService.editComment(this.selectedComment$.value, text);
     }
   }
 

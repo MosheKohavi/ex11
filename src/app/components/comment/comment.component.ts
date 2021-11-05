@@ -27,12 +27,12 @@ export class CommentComponent implements OnInit {
 
   clicked(ev?: MouseEvent) {
     ev?.stopPropagation();
-    this.editService.selectedComment = this.comment;
+    this.editService.selectedComment$.next(this.comment);
   }
 
   edit() {
     this.clicked();
-    this.editService.isEdit = true;
+    this.editService.isEdit$.next(true);
   }
 
   delete() {
